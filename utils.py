@@ -22,35 +22,5 @@ def data_processing(national_team: dict):
         if year_difference % 4 != 0:
             raise InvalidYearCupError("there was no world cup this year")
 
-    if ((current_year - first_cup_year) // 4) < number_titles:
-        raise ImpossibleTitlesError(
-            "impossible to have more titles than disputed cups"
-        )
-
-
-data = {
-    "name": "França",
-    "titles": -3,
-    "top_scorer": "Zidane",
-    "fifa_code": "FRA",
-    "first_cup": "2000-10-18",
-}
-
-data1 = {
-    "name": "França",
-    "titles": 3,
-    "top_scorer": "Zidane",
-    "fifa_code": "FRA",
-    "first_cup": "1911-10-18",
-}
-
-data2 = {
-    "name": "França",
-    "titles": 9,
-    "top_scorer": "Zidane",
-    "fifa_code": "FRA",
-    "first_cup": "2002-10-18",
-}
-
-
-data_processing(data2)
+    if number_titles > ((current_year - first_cup_year) // 4):
+        raise ImpossibleTitlesError("impossible to have more titles than disputed cups")
