@@ -8,3 +8,7 @@ class Team(models.Model):
     top_scorer = models.CharField(max_length=50, null=False)
     fifa_code = models.CharField(max_length=3, unique=True, null=False)
     first_cup = models.DateField()
+
+    def __rep__(self):
+        print(f"<[{self.id} {self.name} - {self.fifa_code}]>")
+
